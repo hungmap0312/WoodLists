@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1732257512 source:c:\users\bestp\documents\codeblock\wood\main.cpp
+	<iostream>
+	<stack>
+
