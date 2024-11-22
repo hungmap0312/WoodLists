@@ -12,10 +12,18 @@ private:
 public:
     Wood(string n, int a, int d) : name(n), age(a), diameter(d) {}
 
-    void print() {
+    void print() const {
         cout << "Ten: " << name << "; Tuoi: " << age << "; Duong kinh: " << diameter << endl;
     }
 };
+
+void printStack(stack<Wood> Woodlist) {
+    while (!Woodlist.empty()) {
+        Woodlist.top().print();
+        Woodlist.pop();
+    }
+    cout << endl;
+}
 
 void insertAtBottom(stack<Wood>& Woodlist, Wood& wood) {
     if (Woodlist.empty()) {
@@ -56,15 +64,16 @@ int main() {
     Woodlist.push(Wood("lim", 20, 20));
     Woodlist.push(Wood("soi", 10, 30));
     Woodlist.push(Wood("oc cho", 35, 15));
+
+    cout << "Ngan xep truoc khi chen:" << endl;
+    printStack(Woodlist);
+
     Wood newWood("sua", 8, 30);
 
-    // Chèn newWood vào vị trí thứ 2
     insertAt(Woodlist, newWood, 2);
 
-    while (!Woodlist.empty()) {
-        Woodlist.top().print();
-        Woodlist.pop();
-    }
+    cout << "Ngan xep sau khi chen:" << endl;
+    printStack(Woodlist);
 
     return 0;
 }
